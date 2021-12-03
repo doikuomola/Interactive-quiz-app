@@ -19,3 +19,9 @@
   text-transform: uppercase;
   margin: 10px;
 }
+
+@media (max-width:800px) {
+  .Quiz{
+    padding: 0 20px;
+  }
+}
