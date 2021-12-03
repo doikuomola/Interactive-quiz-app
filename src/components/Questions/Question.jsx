@@ -6,7 +6,16 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "./Question.css";
 
 
+import { decode } from "html-entities";
 
+decode("&lt; &gt; &quot; &apos; &amp; &#169; &#8710; &#039; &pi;");
+// -> '< > " \' & © ∆'
+
+decode('&copy;', {level: 'html5'});
+// -> '©'
+
+decode('&copy;', {level: 'xml'});
+// -> '&copy;'
 
 const Questions = ({
     questions,

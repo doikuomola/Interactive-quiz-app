@@ -9,6 +9,7 @@ import Home from './pages/Home/Home';
 import Quiz from './pages/Quiz/Quiz';
 import Result from './pages/Result/Result';
 
+
 function App() {
   const [name, setName] = useState("");
   const [questions, setQuestions] = useState();
@@ -27,8 +28,9 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundImage: "url(./ques1.png)" }}>
+      
       <Header />
-
+      
       <Switch>
         <Route path="/" exact>
           <Home name={name} setName={setName} fetchQuestions={fetchQuestions} />

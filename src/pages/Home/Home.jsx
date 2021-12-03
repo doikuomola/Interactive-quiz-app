@@ -1,9 +1,12 @@
+// @ts-nocheck
 import { TextField, MenuItem, Button } from "@material-ui/core";
 import React, { useState } from "react";
 import "./Home.css";
 import Categories from "../../data/Category";
 import { useHistory } from "react-router-dom";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import { Helmet } from "react-helmet";
+
 
 const Home = ({ name, setName, fetchQuestions }) => {
     const [category, setCategory] = useState("");
@@ -26,6 +29,11 @@ const Home = ({ name, setName, fetchQuestions }) => {
 
     return (
         <div className="content">
+            <Helmet>
+                <meta name="description" content="Quiz app" />
+                <meta name="keywords" content="Quiz" />
+                <title>Interativequiz</title>
+            </Helmet>
             <div className="settings">
                 <span style={{ fontSize: 30 }}>Quiz Settings</span>
 

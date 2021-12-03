@@ -1,7 +1,10 @@
+// @ts-nocheck
 import { Button } from "@material-ui/core";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
 import "./Result.css";
+import { Helmet } from "react-helmet";
+
 
 const Result = ({ name, score }) => {
     const history = useHistory();
@@ -14,6 +17,11 @@ const Result = ({ name, score }) => {
 
     return (
         <div className="result">
+            <Helmet>
+                <meta name="description" content="Quiz app" />
+                <meta name="keywords" content="Quiz" />
+                <title>Interativequiz</title>
+            </Helmet>
             <span className="title">Final Score : {score}</span>
             <Button
                 variant="contained"

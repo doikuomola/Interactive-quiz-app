@@ -1,7 +1,10 @@
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 import "./Quiz.css";
 import Question from "../../components/Questions/Question";
+import { Helmet } from "react-helmet";
+
 
 const Quiz = ({ name, questions, setQuestions, score, setScore }) => {
     const [options, setOptions] = useState();
@@ -24,6 +27,11 @@ const Quiz = ({ name, questions, setQuestions, score, setScore }) => {
     };
     return (
         <div className="Quiz">
+            <Helmet>
+                <meta name="description" content="Quiz app" />
+                <meta name="keywords" content="Quiz" />
+                <title>Interativequiz</title>
+            </Helmet>
             <span className="subtitle">Welcome, {name}</span>
             {questions ? (
                 <>
@@ -31,8 +39,7 @@ const Quiz = ({ name, questions, setQuestions, score, setScore }) => {
                         <span>{questions[currQues].category}</span>
                         <span>
                             {questions[currQues].difficulty}
-                            Score :{" "}
-                            {score}
+                            Score : {score}
                         </span>
                     </div>
                     <Question
