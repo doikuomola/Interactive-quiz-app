@@ -5,6 +5,9 @@ import { useHistory } from "react-router";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "./Question.css";
 
+
+
+
 const Questions = ({
     questions,
     score,
@@ -65,7 +68,7 @@ const Questions = ({
                             </button>
                         ))}
                     <div className="controls">
-                        <Button
+                        <Button className="quit"
                             variant="contained"
                             color="secondary"
                             size="large"
