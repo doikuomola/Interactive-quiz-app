@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
@@ -6,7 +7,6 @@ import "./Question.css";
 
 const Questions = ({
     questions,
-    setQuestions,
     score,
     setScore,
     options,
@@ -17,42 +17,32 @@ const Questions = ({
     const [selected, setSelected] = useState();
     const [error, setError] = useState(false);
 
-  const history = useHistory();
+    const history = useHistory();
 
-  const handleSeletect = (i) => {
-    if (selected === i && selected === correct) {
-        return "select"
-    } else if (selected === i && selected !== correct) {
-      return "wrong"
-    } else if (i === correct) {
-      return "select"
-      }
-    }
+    const handleSeletect = (i) => {
+        if (selected === i && selected === correct) return "select";
+        else if (selected === i && selected !== correct) return "wrong";
+        else if (i === correct) return "select";
+    };
 
-  const handleCheck = (i) => {
-    setSelected(i);
-    if (i === correct) {
-      setScore(score + 1)
-      setError(false)
-    }
-  }
+    const handleCheck = (i) => {
+        setSelected(i);
+        if (i === correct) setScore(score + 1);
+        setError(false);
+    };
 
-  const handleNext = () => {
-    if (currQues > 8) {
-      history.push('/result')
-    } else if (selected) {
-      setCurrQues(currQues + 1)
-      // @ts-ignore
-      setSelected();
-    } else {
-      // @ts-ignore
-      setError("Please select an option")
-    }
-  }
+    const handleNext = () => {
+        if (currQues > 8) {
+            history.push("/result");
+        } else if (selected) {
+            setCurrQues(currQues + 1);
+            setSelected();
+        } else setError("Please select an option first");
+    };
 
-  const handleQuit = () => {
-    
-  }
+    const handleQuit = () => {
+        setCurrQues(0);
+    };
 
     return (
         <div className="question">
@@ -90,10 +80,9 @@ const Questions = ({
                             color="primary"
                             size="large"
                             style={{ width: 185 }}
-                            href="/"
                             onClick={handleNext}
                         >
-                            Next Question
+                            {currQues > 10 ? "Submit" : "Next Question"}
                         </Button>
                     </div>
                 </div>
